@@ -1,18 +1,16 @@
 import { createSettingsStyles } from "@/assets/images/styles/settings.styles";
+import Preferences from "@/components/constant/Preferences";
 import ProgressStats from "@/components/constant/ProgressStats";
 import HeaderSetting from "@/components/HeaderSettings";
 import useTheme from "@/hooks/useTheme";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
+import React from "react";
 import { ScrollView, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const SettingsScreen = () => {
-  const { colors,isDarkMode, toggleDarkMode } = useTheme()!;
+  const { colors } = useTheme()!;
   const settingStyles = createSettingsStyles(colors);
-  const [isAutoSync, setIsAutoSync] = useState(true);
-  const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true); 
-
 
   return (
     <LinearGradient // Background Linear Gradient
@@ -28,6 +26,8 @@ const SettingsScreen = () => {
         showsVerticalScrollIndicator={false}
         >
           <ProgressStats/>
+          {/* PREFERENCES */}
+          <Preferences />
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
